@@ -100,7 +100,7 @@ def end_displaying(screen_place, living_option, ai_option, reset_image):
     screen_place.blit (ai_option, (computer_option_place_x,computer_option_place_y))
     return screen_place.blit (reset_image, (0,0))
 
-print (reset_image_x)
+print (user_option_place_width)
 
     
 score = 0
