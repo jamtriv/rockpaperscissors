@@ -22,6 +22,7 @@ class Game_States(Enum):
     LOSE = 4
     BEGINNING = 5
     SUBTITLE = 6
+    title2 = 7
 
 #doing maths
 def calc_ypos(image_height, screen_height):
