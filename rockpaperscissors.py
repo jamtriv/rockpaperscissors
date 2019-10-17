@@ -202,7 +202,7 @@ while True:
 
         drawing_centre(text_image, screen)
         pygame.display.update()
-        pygame.time.delay(3000)
+        pygame.time.delay(3000!)
         
         computer_Option = random.choice(list(Player_Option))
         ending = decision(human_option, computer_Option)
