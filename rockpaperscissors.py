@@ -22,7 +22,6 @@ class Game_States(Enum):
     LOSE = 4
     BEGINNING = 5
     SUBTITLE = 6
-    title2 = 7
 
 #doing maths
 def calc_ypos(image_height, screen_height):
@@ -80,9 +79,7 @@ def end_displaying(screen_place, living_option, ai_option, reset_image):
     screen_place.blit (user_text, (user_place_x, user_place_y))
     screen_place.blit (computer_text, (user_place_x, computer_place_y))
 
-    #print (living_option, ai_option)
-
-    user_option_place_width = living_option.get_rect().width
+        user_option_place_width = living_option.get_rect().width
     user_option_place_length = living_option.get_rect().height
     computer_option_place_width = ai_option.get_rect().width
     computer_option_place_length = ai_option.get_rect().height
@@ -95,8 +92,7 @@ def end_displaying(screen_place, living_option, ai_option, reset_image):
     computer_option_place_y -= ai_option.get_rect().height
 
     reset_image_x = screen_place.get_rect().width / 20
-    #reset_image_y = 
-
+    
     screen_place.blit (living_option, (user_option_place_x,0))
     screen_place.blit (ai_option, (computer_option_place_x,computer_option_place_y))
     return screen_place.blit (reset_image, (0,0))
