@@ -2,8 +2,8 @@ import random
 from pygame.locals import *
 from sys import exit
 import pygame
-
 from enum import Enum
+
 class Player_Option(Enum):
     ROCK = 0
     PAPER = 1
