@@ -79,7 +79,7 @@ def end_displaying(screen_place, living_option, ai_option, reset_image):
     screen_place.blit (user_text, (user_place_x, user_place_y))
     screen_place.blit (computer_text, (user_place_x, computer_place_y))
 
-        user_option_place_width = living_option.get_rect().width
+    user_option_place_width = living_option.get_rect().width
     user_option_place_length = living_option.get_rect().height
     computer_option_place_width = ai_option.get_rect().width
     computer_option_place_length = ai_option.get_rect().height
@@ -97,10 +97,11 @@ def end_displaying(screen_place, living_option, ai_option, reset_image):
     screen_place.blit (ai_option, (computer_option_place_x,computer_option_place_y))
     return screen_place.blit (reset_image, (0,0))
 
-print (user_option_place_width)
+    print (user_option_place_width)
 
     
 score = 0
+ai = 0
 
 #setup the display
 pygame.init()
@@ -210,6 +211,7 @@ while True:
             state = Game_States.DRAW
         if ending == Ending_Option.LOSE:
             state = Game_States.LOSE
+            ai = ai + 1
         if ending == Ending_Option.WIN:
             state = Game_States.WIN
             score = score + 1
@@ -238,6 +240,11 @@ while True:
         score_x = screen.get_rect().width
         score_x -= score_blit.get_rect().width
         screen.blit (score_blit, (score_x,0))  
+
+        ai_blit = font.render (str(ai), True, (255,69,0), (240,255,240))
+        ai_x = screen.get_rect().width
+        ai_x -= score_blit.get_rect().width
+        screen.blit(ai_blit, (ai_x,400))
 
     if state == Game_States.SUBTITLE:
         screen.fill ((0,0,0))
