@@ -244,7 +244,10 @@ while True:
         ai_blit = font.render (str(ai), True, (255,69,0), (240,255,240))
         ai_x = screen.get_rect().width
         ai_x -= score_blit.get_rect().width
-        screen.blit(ai_blit, (ai_x,400))
+        #ai_y = screen_length / 2
+        #ai_y -= (screen_length.get_rect().height / 4) * 3
+        
+        screen.blit(ai_blit, (ai_x,513))
 
     if state == Game_States.SUBTITLE:
         screen.fill ((0,0,0))
