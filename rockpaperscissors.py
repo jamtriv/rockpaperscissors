@@ -209,6 +209,8 @@ while True:
 
         if ending == Ending_Option.DRAW:
             state = Game_States.DRAW
+            ai = ai + 0.5
+            score = score + 1
         if ending == Ending_Option.LOSE:
             state = Game_States.LOSE
             ai = ai + 1
@@ -259,6 +261,7 @@ while True:
         screen.blit (credits_two,(100,200))
         screen.blit (credits_three,(100,300))
         screen.blit (credits_four,(100,400))
+
     
 
     #Updating the display
