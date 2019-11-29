@@ -4,6 +4,7 @@ from sys import exit
 import pygame
 from enum import Enum
 
+
 class Player_Option(Enum):
     ROCK = 0
     PAPER = 1
@@ -102,6 +103,8 @@ def end_displaying(screen_place, living_option, ai_option, reset_image):
     
 score = 0
 ai = 0
+goes = 0
+playernumber = int(input("How many goes does the user have?"))
 
 #setup the display
 pygame.init()
@@ -123,7 +126,7 @@ image_rock = pygame.image.load(r'images/rock.jpg') #import rock image
 image_paper = pygame.image.load(r'images/paper.jpg') #import paper image
 image_scissors = pygame.image.load (r'images/scissors.jpg') #import scissors image
 image_reset = pygame.image.load (r'images/reset.png') #imports reset button
-image_reset2zero = pygame.image.load (r'images/exitbutton.')
+#image_reset2zero = pygame.image.load (r'images/exitbutton.')
 
 sound_rock = pygame.mixer.Sound(r"recordings/final/rock.wav")
 sound_paper = pygame.mixer.Sound(r"recordings/final/paper.wav")
@@ -212,12 +215,24 @@ while True:
             state = Game_States.DRAW
             ai = ai + 0.5
             score = score + 1
+            goes  = goes + 1
+            if goes == playernumber:
+                pygame.quit
+            
         if ending == Ending_Option.LOSE:
             state = Game_States.LOSE
             ai = ai + 1
+            goes = goes + 1
+            if goes == playernumber:
+                pygame.quit
+            
         if ending == Ending_Option.WIN:
             state = Game_States.WIN
             score = score + 1
+            goes = goes + 1
+            if goes == playernumber:
+                pygame.quit
+        
         
     if state == Game_States.WIN:
         screen.fill((124,252,0))
@@ -305,3 +320,5 @@ while True:
                         state = Game_States.CHOOSING
                     if credits_image.collidepoint(event.pos):
                         state = Game_States.SUBTITLE
+print ("This is the number of times you won:", score)
+print ("This is the number of times you lost:", ai)
