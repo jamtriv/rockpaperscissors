@@ -23,6 +23,7 @@ class Game_States(Enum):
     LOSE = 4
     BEGINNING = 5
     SUBTITLE = 6
+    #SCORES = 7
 
 #doing maths
 def calc_ypos(image_height, screen_height):
@@ -103,8 +104,8 @@ def end_displaying(screen_place, living_option, ai_option, reset_image):
     
 score = 0
 ai = 0
-goes = 0
-playernumber = int(input("How many goes does the user have?"))
+#goes = 0
+#playernumber = int(input("How many goes does the user have?"))
 
 #setup the display
 pygame.init()
@@ -215,23 +216,24 @@ while True:
             state = Game_States.DRAW
             ai = ai + 0.5
             score = score + 1
-            goes  = goes + 1
-            if goes == playernumber:
-                pygame.quit
+            #goes  = goes + 1
+            #if goes == playernumber:
+                #pygame.time.delay(30)
+                #pygame.quit()
             
         if ending == Ending_Option.LOSE:
             state = Game_States.LOSE
             ai = ai + 1
-            goes = goes + 1
-            if goes == playernumber:
-                pygame.quit
+            #goes = goes + 1
+            #if goes == playernumber:
+                #pygame.time.delay(30)
+                #pygame.quit()
             
         if ending == Ending_Option.WIN:
             state = Game_States.WIN
             score = score + 1
-            goes = goes + 1
-            if goes == playernumber:
-                pygame.quit
+            #goes = goes + 1
+            
         
         
     if state == Game_States.WIN:
@@ -239,18 +241,24 @@ while True:
         win_image = font.render("You won! Well done!", True, (255,255,255), (135,206,250))
         drawing_centre(win_image, screen)
         reset_button = end_displaying(screen, list_images[human_option], list_images[computer_Option], image_reset)
+        #pygame.time.delay(30)
+        #state = Game_States.SCORES
                         
     if state == Game_States.LOSE:
         screen.fill((250,128,114))
         lose_image = font.render("You lost! Shame.", True, (255,255,255), (255,215,0))
         drawing_centre(lose_image, screen)
         reset_button = end_displaying(screen, list_images[human_option], list_images[computer_Option], image_reset)
+        #pygame.time.delay(30)
+        #state = Game_States.SCORES
                         
     if state == Game_States.DRAW:
         screen.fill((255,255,153))
         draw_image = font.render("It's a draw!", True, (255,69,0), (240,255,240))
         drawing_centre(draw_image, screen)
         reset_button = end_displaying(screen, list_images[human_option], list_images[computer_Option], image_reset)
+        #pygame.time.delay(30)
+        #state = Game_States.SCORES
             
 
     if state != Game_States.ANSWERING and state != Game_States.BEGINNING:
@@ -278,6 +286,12 @@ while True:
         screen.blit (credits_three,(100,300))
         screen.blit (credits_four,(100,400))
 
+    #if state == Game_States.SCORES:
+        #screen.fill ((0,0,0))     
+        #human_score = font_big.render(score, True, ((255,255,255)))
+        #ai_score = font_big.render(ai, True, ((255,255,255)))
+        #screen.blit (human_score,(100,100))
+        #screen.blit (ai_score,(100,200))
     
 
     #Updating the display
