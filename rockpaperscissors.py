@@ -350,8 +350,8 @@ while True:
                 human_option = Player_Option.SCISSORS
                 sound_scissors.play()
             if event.key == K_ESCAPE:
-                pygame.quit
-                exit
+                pygame.quit()
+                exit()
 
              
 
