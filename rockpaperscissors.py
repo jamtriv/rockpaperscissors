@@ -334,6 +334,8 @@ while True:
                         state = Game_States.CHOOSING
                     if credits_image.collidepoint(event.pos):
                         state = Game_States.SUBTITLE
+
+        
         elif event.type == KEYDOWN:
             if event.key == K_r:
                 state = Game_States.ANSWERING
@@ -347,6 +349,9 @@ while True:
                 state = Game_States.ANSWERING
                 human_option = Player_Option.SCISSORS
                 sound_scissors.play()
+            if event.key == K_ESCAPE:
+                pygame.quit
+                exit
 
              
 
