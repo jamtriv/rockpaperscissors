@@ -335,18 +335,18 @@ while True:
                     if credits_image.collidepoint(event.pos):
                         state = Game_States.SUBTITLE
         elif event.type == KEYDOWN:
-            if event.key [K_r]:
+            if event.key == K_r:
                 state = Game_States.ANSWERING
                 human_option = Player_Option.ROCK
                 sound_rock.play()
-            if event.key [K_p]:
+            if event.key == K_p:
                 state = Game_States.ANSWERING
                 human_option = Player_Option.PAPER
                 sound_paper.play()
-            if event.key [K_s]:
+            if event.key == K_s:
                 state = Game_States.ANSWERING
                 human_option = Player_Option.SCISSORS
-                sound_scissors.play
+                sound_scissors.play()
 
              
 
