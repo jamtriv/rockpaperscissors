@@ -334,5 +334,21 @@ while True:
                         state = Game_States.CHOOSING
                     if credits_image.collidepoint(event.pos):
                         state = Game_States.SUBTITLE
+        elif event.type == KEYDOWN:
+            if event.key [K_r]:
+                state = Game_States.ANSWERING
+                human_option = Player_Option.ROCK
+                sound_rock.play()
+            if event.key [K_p]:
+                state = Game_States.ANSWERING
+                human_option = Player_Option.PAPER
+                sound_paper.play()
+            if event.key [K_s]:
+                state = Game_States.ANSWERING
+                human_option = Player_Option.SCISSORS
+                sound_scissors.play
+
+             
+
 print ("This is the number of times you won:", score)
 print ("This is the number of times you lost:", ai)
