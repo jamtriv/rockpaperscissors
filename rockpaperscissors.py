@@ -351,6 +351,7 @@ while True:
                 sound_scissors.play()
             if event.key == K_ESCAPE:
                 pygame.quit()
+                pygame.time.delay(30)
                 exit()
 
              
