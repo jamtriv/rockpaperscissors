@@ -323,37 +323,40 @@ while True:
                         state = Game_States.ANSWERING
                         human_option = Player_Option.SCISSORS
                         sound_scissors.play()
+
+            elif event.type == KEYDOWN:
+                if state == Game_States.Choosing:
+                    if event.key == K_r:
+                        state = Game_States.ANSWERING
+                        human_option = Player_Option.ROCK
+                        sound_rock.play()
+                    if event.key == K_p:
+                        state = Game_States.ANSWERING
+                        human_option = Player_Option.PAPER
+                        sound_paper.play()
+                    if event.key == K_s:
+                        state = Game_States.ANSWERING
+                        human_option = Player_Option.SCISSORS
+                        sound_scissors.play()
+                    if event.key == K_ESCAPE:
+                        pygame.quit()
+                        pygame.time.delay(30)
+                        exit()
+
                
 
     
-                if state == Game_States.DRAW or state == Game_States.LOSE or state == Game_States.WIN:
-                    if reset_button.collidepoint(event.pos):
-                        state = Game_States.CHOOSING
-                if state == Game_States.BEGINNING:
-                    if start_image.collidepoint(event.pos):
-                        state = Game_States.CHOOSING
-                    if credits_image.collidepoint(event.pos):
-                        state = Game_States.SUBTITLE
+        if state == Game_States.DRAW or state == Game_States.LOSE or state == Game_States.WIN:
+            if reset_button.collidepoint(event.pos):
+                state = Game_States.CHOOSING
+            if state == Game_States.BEGINNING:
+                if start_image.collidepoint(event.pos):
+                    state = Game_States.CHOOSING
+                if credits_image.collidepoint(event.pos):
+                    state = Game_States.SUBTITLE
 
         
-        elif event.type == KEYDOWN:
-            if event.key == K_r:
-                state = Game_States.ANSWERING
-                human_option = Player_Option.ROCK
-                sound_rock.play()
-            if event.key == K_p:
-                state = Game_States.ANSWERING
-                human_option = Player_Option.PAPER
-                sound_paper.play()
-            if event.key == K_s:
-                state = Game_States.ANSWERING
-                human_option = Player_Option.SCISSORS
-                sound_scissors.play()
-            if event.key == K_ESCAPE:
-                pygame.quit()
-                pygame.time.delay(30)
-                exit()
-
+            
              
 
 print ("This is the number of times you won:", score)
