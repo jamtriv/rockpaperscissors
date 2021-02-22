@@ -62,7 +62,7 @@ def drawing_centre(input_image, input_screen):
 
         input_screen.blit(input_image, (blit_pos_x, blit_pos_y))
 
-def end_displaying(screen_place, living_option, ai_option, reset_image):
+def end_displaying(screen_place, living_option, ai_option, reset_image, ):
     user_text = font_states.render("You chose:...", True, (255,69,0))
     computer_text = font_states.render ("The computer chose:...", True, (255,69,0))
 
@@ -98,8 +98,9 @@ def end_displaying(screen_place, living_option, ai_option, reset_image):
     screen_place.blit (living_option, (user_option_place_x,0))
     screen_place.blit (ai_option, (computer_option_place_x,computer_option_place_y))
     return screen_place.blit (reset_image, (0,0))
+    #screen_place.blit()                                                                     trying to add a return to main menu but idk how!!
 
-    print (user_option_place_width)
+    #print (user_option_place_width)
 
     
 score = 0
@@ -127,7 +128,7 @@ image_rock = pygame.image.load(r'images/rock.jpg') #import rock image
 image_paper = pygame.image.load(r'images/paper.jpg') #import paper image
 image_scissors = pygame.image.load (r'images/scissors.jpg') #import scissors image
 image_reset = pygame.image.load (r'images/reset.png') #imports reset button
-#image_reset2zero = pygame.image.load (r'images/exitbutton.')
+image_mainmenu = pygame.image.load (r'images/exitbutton.')
 
 sound_rock = pygame.mixer.Sound(r"recordings/final/rock.wav")
 sound_paper = pygame.mixer.Sound(r"recordings/final/paper.wav")
