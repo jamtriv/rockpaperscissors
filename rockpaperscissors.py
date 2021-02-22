@@ -13,7 +13,7 @@ class Player_Option(Enum):
 class Ending_Option(Enum):
     DRAW = 0
     WIN = 1
-    LOSE = 2
+    LOSE = 2 #lol
 
 class Game_States(Enum):
     ANSWERING = 0
@@ -24,7 +24,6 @@ class Game_States(Enum):
     BEGINNING = 5
     SUBTITLE = 6
     #SCORES = 7
-    #tes
 
 #doing maths
 def calc_ypos(image_height, screen_height):
@@ -325,38 +324,41 @@ while True:
                         human_option = Player_Option.SCISSORS
                         sound_scissors.play()
 
-            elif event.type == KEYDOWN:
-                if state == Game_States.Choosing:
-                    if event.key == K_r:
-                        state = Game_States.ANSWERING
-                        human_option = Player_Option.ROCK
-                        sound_rock.play()
-                    if event.key == K_p:
-                        state = Game_States.ANSWERING
-                        human_option = Player_Option.PAPER
-                        sound_paper.play()
-                    if event.key == K_s:
-                        state = Game_States.ANSWERING
-                        human_option = Player_Option.SCISSORS
-                        sound_scissors.play()
-                    if event.key == K_ESCAPE:
-                        pygame.quit()
-                        pygame.time.delay(30)
-                        exit()
+                if state == Game_States.DRAW or state == Game_States.LOSE or state == Game_States.WIN:
+                    if reset_button.collidepoint(event.pos):
+                        state = Game_States.CHOOSING
+                if state == Game_States.BEGINNING:
+                    if start_image.collidepoint(event.pos):
+                        state = Game_States.CHOOSING
+                    if credits_image.collidepoint(event.pos):
+                        state = Game_States.SUBTITLE
+
+
+        if event.type == KEYDOWN:
+            if state == Game_States.CHOOSING:
+                if event.key == K_r:
+                    state = Game_States.ANSWERING
+                    human_option = Player_Option.ROCK
+                    sound_rock.play()
+                if event.key == K_p:
+                    state = Game_States.ANSWERING
+                    human_option = Player_Option.PAPER
+                    sound_paper.play()
+                if event.key == K_s:
+                    state = Game_States.ANSWERING
+                    human_option = Player_Option.SCISSORS
+                    sound_scissors.play()
+            if event.key == K_ESCAPE:
+                pygame.quit()
+                pygame.time.delay(30)
+                exit()
 
                
 
     
-        if state == Game_States.DRAW or state == Game_States.LOSE or state == Game_States.WIN:
-            if reset_button.collidepoint(event.pos):
-                state = Game_States.CHOOSING
-            if state == Game_States.BEGINNING:
-                if start_image.collidepoint(event.pos):
-                    state = Game_States.CHOOSING
-                if credits_image.collidepoint(event.pos):
-                    state = Game_States.SUBTITLE
+                
 
-        
+exit()        
             
              
 
