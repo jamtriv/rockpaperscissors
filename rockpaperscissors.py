@@ -333,9 +333,4 @@ while True:
                 pygame.time.delay(30)
                 exit()
 
-               
-
-    
-                
-
 exit()
