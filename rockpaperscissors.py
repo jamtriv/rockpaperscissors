@@ -128,7 +128,7 @@ image_rock = pygame.image.load(r'images/rock.jpg') #import rock image
 image_paper = pygame.image.load(r'images/paper.jpg') #import paper image
 image_scissors = pygame.image.load (r'images/scissors.jpg') #import scissors image
 image_reset = pygame.image.load (r'images/reset.png') #imports reset button
-image_mainmenu = pygame.image.load (r'images/exitbutton.')
+image_mainmenu = pygame.image.load (r'images/exitbutton.') #imports main menu button... i hope
 
 sound_rock = pygame.mixer.Sound(r"recordings/final/rock.wav")
 sound_paper = pygame.mixer.Sound(r"recordings/final/paper.wav")
